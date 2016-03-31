@@ -1,7 +1,10 @@
 'use strict';
 
-function UserController(User) {
+var jwt = require('jwt-simple');
+
+function UserController(User, config) {
     this._User = User;
+    this._config = config;
 }
 
 UserController.prototype.create = function create(user, callback) {
@@ -24,6 +27,33 @@ UserController.prototype.create = function create(user, callback) {
         }
 
         return callback();
+    });
+};
+
+UserController.prototype.authenticate = function authenticate(email, password, callback) {
+    var _this = this;
+
+    _this._User.findOne({ email: email }, function (err, user) {
+        var accessToken;
+        var secret = _this._config.authentication.secret;
+
+        if (err) {
+            return callback({
+                type: err.code,
+                message: err.message
+            });
+        }
+
+        if (!user || user.password !== password) {
+            return callback({
+                type: 'InvlidEmailPassword',
+                message: 'Specified e-mail / password combination is not valid.'
+            });
+        }
+
+        accessToken = jwt.encode(user, secret);
+
+        return callback(null, accessToken);
     });
 };
 

@@ -12,6 +12,7 @@ module.exports = function expressApp(config, statusController, userController) {
     app.use(bodyParser.json());
 
     app.get('/', statusController.getStatus);
+    app.get('/access_token', userController.authenticateUser)
     app.post('/accounts', userController.createAccount)
 
     return app;
