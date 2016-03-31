@@ -14,13 +14,15 @@ module.exports = {
      * Controllers
      */
     'statusController': ['type', require('./src/controller/StatusController')],
+    'userController': ['type', require('./src/controller/UserController')],
 
     /*
      * Models
      */
-    'User': ['factory', require('./src/model/User')]
+    'User': ['factory', require('./src/model/User')],
 
     /*
      * Services
      */
+    'userService': ['type', require('./src/service/UserService')]
 };
