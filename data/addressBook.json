@@ -1,0 +1,14 @@
+{
+  "contacts": [
+    {
+      "firstName": "Lukas",
+      "lastName": "Ruczkowski",
+      "phone": "+420777888999"
+    },
+    {
+      "firstName": "Jan",
+      "lastName": "Novak",
+      "phone": "+420777111999"
+    }
+  ]
+}

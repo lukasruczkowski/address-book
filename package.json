@@ -1,0 +1,23 @@
+{
+  "name": "address-book",
+  "version": "0.1.0",
+  "description": "Address book",
+  "scripts": {
+    "start": "NODE_ENV=devel node_modules/.bin/nodemon index.js",
+    "test": "NODE_ENV=testing node_modules/.bin/mocha ./test/unit"
+  },
+  "keywords": [],
+  "dependencies": {
+    "body-parser": "1.14.0",
+    "di": "0.0.1",
+    "express": "^3.21.2",
+    "extend": "^3.0.0",
+    "lodash": "^3.10.1"
+  },
+  "devDependencies": {
+    "chai": "^2.1.2",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.9.1",
+    "supertest": "^1.0.1"
+  }
+}
