@@ -8,5 +8,9 @@ module.exports = {
     },
     authentication: {
         secret: 'abcd1234'
+    },
+    firebase: {
+        url: 'https://address-book-test.firebaseIO.com',
+        collection: 'contacts.json'
     }
 };

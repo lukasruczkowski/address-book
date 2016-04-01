@@ -24,7 +24,7 @@ module.exports = function expressApp(
     app.get('/', statusController.getStatus);
     app.get('/access_token', userController.authenticateUser);
     app.post('/accounts', userController.createAccount);
-    app.post('/contacts', passport.authenticate('bearer', { session: false }), contactController.createContact);
+    app.post('/contacts', passport.authenticate('bearer', { session: false }), contactController.addContact);
 
     return app;
 };
