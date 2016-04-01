@@ -9,6 +9,7 @@ var BearerStrategy = require('passport-http-bearer').Strategy;
 process.env.NODE_ENV = process.env.NODE_ENV || 'production';
 
 module.exports = function expressApp(
+    Database,
     config,
     statusController,
     userController,
