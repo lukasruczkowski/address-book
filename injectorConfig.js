@@ -26,5 +26,6 @@ module.exports = {
      * Services
      */
     'userService': ['type', require('./src/service/UserService')],
-    'authenticateService': ['type', require('./src/service/AuthenticateService')]
+    'authenticateService': ['type', require('./src/service/AuthenticateService')],
+    'firebaseService': ['type', require('./src/service/FirebaseService')]
 };

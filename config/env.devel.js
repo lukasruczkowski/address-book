@@ -10,7 +10,6 @@ module.exports = {
         secret: 'abcd1234'
     },
     firebase: {
-        url: 'https://address-book-test.firebaseIO.com',
-        collection: 'contacts.json'
+        url: 'https://address-book-test.firebaseIO.com'
     }
 };
