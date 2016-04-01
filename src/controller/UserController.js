@@ -1,7 +1,8 @@
 'use strict';
 
-function UserController(userService) {
+function UserController(userService, authenticateService) {
     this._userService = userService;
+    this._authenticateService = authenticateService;
     this.createAccount = this.createAccount.bind(this);
     this.authenticateUser = this.authenticateUser.bind(this);
 }
@@ -49,7 +50,7 @@ UserController.prototype.authenticateUser = function authenticateUser(req, res) 
         });
     }
 
-    this._userService.authenticate(email, password, function (err, accessToken) {
+    this._authenticateService.authenticate(email, password, function (err, accessToken) {
         if (err) {
             return res.status(401).json(err);
         }

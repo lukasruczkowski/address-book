@@ -15,6 +15,7 @@ module.exports = {
      */
     'statusController': ['type', require('./src/controller/StatusController')],
     'userController': ['type', require('./src/controller/UserController')],
+    'contactController': ['type', require('./src/controller/ContactController')],
 
     /*
      * Models
@@ -24,5 +25,6 @@ module.exports = {
     /*
      * Services
      */
-    'userService': ['type', require('./src/service/UserService')]
+    'userService': ['type', require('./src/service/UserService')],
+    'authenticateService': ['type', require('./src/service/AuthenticateService')]
 };

@@ -1,13 +1,11 @@
 'use strict';
 
-var jwt = require('jwt-simple');
-
-function UserController(User, config) {
+function UserService(User, config) {
     this._User = User;
     this._config = config;
 }
 
-UserController.prototype.create = function create(user, callback) {
+UserService.prototype.create = function create(user, callback) {
     this._User.create(user, function (err) {
         var errObject;
         if (err) {
@@ -30,31 +28,20 @@ UserController.prototype.create = function create(user, callback) {
     });
 };
 
-UserController.prototype.authenticate = function authenticate(email, password, callback) {
+UserService.prototype.getUser = function getUser(email, callback) {
     var _this = this;
 
     _this._User.findOne({ email: email }, function (err, user) {
-        var accessToken;
-        var secret = _this._config.authentication.secret;
-
         if (err) {
-            return callback({
-                type: err.code,
-                message: err.message
-            });
+            return callback(err);
         }
 
-        if (!user || user.password !== password) {
-            return callback({
-                type: 'InvlidEmailPassword',
-                message: 'Specified e-mail / password combination is not valid.'
-            });
+        if (!user) {
+            return callback(new Error('User with this email does not exist'));
         }
 
-        accessToken = jwt.encode(user, secret);
-
-        return callback(null, accessToken);
+        return callback(null, user);
     });
 };
 
-module.exports = UserController;
+module.exports = UserService;
