@@ -9,7 +9,6 @@ function FirebaseService(config) {
 FirebaseService.prototype.post = function post(collection, data, callback) {
     var firebaseUrl = this._config.firebase.url + '/' + collection;
     var requestOptions = {
-        method: 'post',
         body: data,
         json: true,
         url: firebaseUrl
