@@ -1,8 +1,7 @@
 'use strict';
 
-function UserService(User, config) {
+function UserService(User) {
     this._User = User;
-    this._config = config;
 }
 
 UserService.prototype.create = function create(user, callback) {
