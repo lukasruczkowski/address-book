@@ -6,7 +6,7 @@ function AuthenticateService(config, userService) {
     this._userService = userService;
     this._config = config;
 
-    this.initialize = this.initialize.bind(this);
+    this.isBearerValid = this.isBearerValid.bind(this);
 }
 
 AuthenticateService.prototype.authenticate = function authenticate(email, password, callback) {
@@ -29,7 +29,7 @@ AuthenticateService.prototype.authenticate = function authenticate(email, passwo
     });
 };
 
-AuthenticateService.prototype.initialize = function initialize(accessToken, callback) {
+AuthenticateService.prototype.isBearerValid = function isBearerValid(accessToken, callback) {
     var secret = this._config.authentication.secret;
     var userObject;
 

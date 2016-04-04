@@ -4,6 +4,11 @@ var mongoose = require('mongoose');
 
 module.exports = function (config) {
     var db = mongoose.connection;
+    var dbState = db.readyState;
+
+    if (dbState >= 1) {
+        return;
+    }
 
     console.log('Connecting to MongoDB...');
     mongoose.connect(config.db.uri);

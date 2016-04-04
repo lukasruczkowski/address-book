@@ -20,7 +20,7 @@ module.exports = function expressApp(
 
     app.use(bodyParser.json());
 
-    passport.use(new BearerStrategy(authenticateService.initialize));
+    passport.use(new BearerStrategy(authenticateService.isBearerValid));
 
     app.get('/', statusController.getStatus);
     app.get('/access_token', userController.authenticateUser);
