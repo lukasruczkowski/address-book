@@ -7,7 +7,7 @@ var injector = new di.Injector([injectorConfig]);
 injector.invoke(function main(config, app) {
     var port = config.port;
 
-    app.listen(port, function () {
+    app.listen((process.env.PORT || port), function () {
         console.log('Listening on port ' + port);
     });
 });
