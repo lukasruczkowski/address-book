@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "description": "Address book",
   "scripts": {
-    "start": "NODE_ENV=devel node_modules/.bin/nodemon index.js",
+    "start": "node index.js",
+    "start-devel": "NODE_ENV=devel node_modules/.bin/nodemon index.js",
     "test": "NODE_ENV=testing node_modules/.bin/mocha ./test/unit ./test/integration"
   },
   "keywords": [],
