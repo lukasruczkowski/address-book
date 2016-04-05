@@ -4,7 +4,7 @@
 
 module.exports = {
     db: {
-        uri: 'mongodb://localhost/address-book'
+        uri: 'mongodb://address-book:abcd1234@ds015760.mlab.com:15760/heroku_mfpzznqk'
     },
     authentication: {
         secret: 'abcd1234'
